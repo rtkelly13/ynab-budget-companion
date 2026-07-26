@@ -4,7 +4,9 @@ import os
 import datetime
 from typing import Dict, Any, List, Optional
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "ynab_companion.db")
+TEMP_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "temp")
+os.makedirs(TEMP_DIR, exist_ok=True)
+DB_PATH = os.path.join(TEMP_DIR, "ynab_companion.db")
 
 def get_db():
     conn = sqlite3.connect(DB_PATH)
