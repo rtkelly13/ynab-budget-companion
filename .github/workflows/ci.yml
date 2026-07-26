@@ -1,0 +1,48 @@
+name: CI & Required Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify:
+    name: Build Frontend & Verify Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Python & uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          pnpm install --no-frozen-lockfile
+
+      - name: Build Frontend Bundle
+        run: |
+          cd frontend
+          pnpm build
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          uv sync
