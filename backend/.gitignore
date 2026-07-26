@@ -6,5 +6,12 @@ dist/
 wheels/
 *.egg-info
 
+# SQLite databases & local secrets
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.local
+
 # Virtual environments
 .venv
