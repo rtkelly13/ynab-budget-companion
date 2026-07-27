@@ -16,6 +16,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          path: app
+
+      - name: Checkout Design System Peer Repo
+        uses: actions/checkout@v4
+        with:
+          repository: rtkelly13/design-system
+          path: design-system
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -32,19 +40,24 @@ jobs:
         with:
           version: "latest"
 
-      - name: Install Frontend Dependencies
+      - name: Build Design System Peer Repo
         run: |
-          cd frontend
+          cd design-system
           pnpm install --no-frozen-lockfile
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pnpm build
+
+      - name: Install Frontend Dependencies & Link Design System
+        run: |
+          cd app/frontend
+          pnpm link ../../design-system
+          pnpm install --no-frozen-lockfile
 
       - name: Build Frontend Bundle
         run: |
-          cd frontend
+          cd app/frontend
           pnpm build
 
       - name: Install Backend Dependencies
         run: |
-          cd backend
+          cd app/backend
           uv sync

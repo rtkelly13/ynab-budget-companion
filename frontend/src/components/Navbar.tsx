@@ -11,7 +11,7 @@ import {
   RefreshCw,
   ChevronDown
 } from 'lucide-react';
-import { Button, Badge, Avatar } from '@rtkelly/design-system';
+import { Button, Badge, Avatar } from '@rtkelly13/design-system';
 import type { YNABBudget } from '../api';
 
 interface NavbarProps {
