@@ -45,12 +45,15 @@ jobs:
           cd design-system
           pnpm install --no-frozen-lockfile
           pnpm build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Frontend Dependencies & Link Design System
+      - name: Install Frontend Dependencies
         run: |
           cd app/frontend
-          pnpm link ../../design-system
           pnpm install --no-frozen-lockfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Frontend Bundle
         run: |
