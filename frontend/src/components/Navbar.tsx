@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Brand & Budget Selector */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Avatar fallback="YN" accent="cyan" size="md" />
+            <Avatar fallback="YN" accent="primary" size="md" />
             <div>
               <h1 style={{ fontFamily: 'var(--font-space-grotesk, "Space Grotesk"), sans-serif', fontSize: '1.25rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, color: 'var(--brutalist-cyan, #22d3ee)' }}>
                 [ YNAB COMPANION ]
@@ -116,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                variant={isActive ? 'cyan' : 'default'}
+                variant={isActive ? 'primary' : 'default'}
                 bracketed={isActive}
                 style={{
                   padding: '0.4rem 0.8rem',
@@ -135,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* SQLite Storage Indicator, Sync & Settings Button */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <Badge accent="green">
+          <Badge accent="success">
             <Database size={14} style={{ display: 'inline', marginRight: '4px' }} />
             SQLITE ACTIVE
           </Badge>
@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <Button 
             onClick={handleSyncClick} 
             disabled={syncing}
-            variant="pink"
+            variant="secondary"
             bracketed
             style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
           >
