@@ -19,6 +19,11 @@ jobs:
         with:
           path: app
 
+      - name: Verify no banned scripts (.sh / .ps1)
+        uses: ls-lint/action@a87c5eb4fb26d7af1bd0adba203dd1e76f7e94eb # v2.3.2
+        with:
+          workdir: app
+
       - name: Checkout Design System Peer Repo
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
