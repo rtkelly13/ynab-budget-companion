@@ -8,18 +8,7 @@ Package Managers:
 
 ---
 
-## 🛑 Repository Conventions & Workflow Policy
-
-1. **Squash Merge Only**: All pull requests must be merged into `main` using **Squash and Merge** exclusively.
-2. **Delete Branch on Merge**: Feature branches must be automatically deleted immediately upon merge into `main`.
-3. **Linear History**: Maintain a strictly linear history. Rebase feature branches onto `main` before merging; no merge commits allowed.
-4. **Required Checks**:
-   - `pnpm build` in `frontend/`
-   - `uv run pytest` in `backend/`
-
----
-
-## 📜 Commands
+## Commands
 
 - **Backend**:
   - `uv sync`: Sync dependencies
@@ -28,6 +17,8 @@ Package Managers:
   - `pnpm install`: Install dependencies
   - `pnpm dev`: Start Vite dev server on port `5173`
   - `pnpm build`: Build production bundle
+
+CI requires both `pnpm build` in `frontend/` and `uv run pytest` in `backend/`.
 
 
 ## 🛑 Repository Conventions & Workflow Policy
