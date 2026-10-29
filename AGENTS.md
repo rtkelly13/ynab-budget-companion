@@ -18,7 +18,7 @@ Package Managers:
   - `pnpm dev`: Start Vite dev server on port `5173`
   - `pnpm build`: Build production bundle
 
-CI requires both `pnpm build` in `frontend/` and `uv run pytest` in `backend/`.
+CI builds the frontend (`pnpm build`) and installs backend dependencies (`uv sync`); it does not run the backend tests, so run `uv run pytest` in `backend/` yourself.
 
 
 ## 🛑 Repository Conventions & Workflow Policy
